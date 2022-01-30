@@ -50,13 +50,13 @@
 		|![](6.jpg)	|![](5.jpg)	|![](4.jpg)	|
 		|![](7.jpg)	|![](8.jpg)	|![](9.jpg)	|
 
+
 ## Research
 
-	Essentially, to ensure the bot is "always on" as much as possible, you need to have it running on a dedicated machine that will run 24/7. Potential options include, but are not limited to:
-	
-	- Personal computers
-		- Raspberry Pi's or similar devices with low power consumption would be perfect since this discord bot doesn't need that much processing power to begin with.
-	- Cloud servers (AWS, Azure, Google)
-		- Again, since this bot doesn't need crazy high specs, consider using the cheapest option available.
-	- Virtual Machines
-		- If you have a home server, you could setup a simple VM with the sole task of running the bot, that way, any potential exploitations or security risks of the bot can be contained easily and would not be able harm the rest of the machine.
+Essentially, to ensure the bot is "always on" as much as possible, you need to have it running on a dedicated machine that will run 24/7. Potential options include, but are not limited to:
+- Personal computers
+	- Raspberry Pi's or similar devices with low power consumption would be perfect since this discord bot doesn't need that much processing power to begin with.
+- Cloud servers (AWS, Azure, Google)
+	- Again, since this bot doesn't need crazy high specs, consider using the cheapest option available.
+- Virtual Machines
+	- If you have a home server, you could setup a simple VM with the sole task of running the bot, that way, any potential exploitations or security risks of the bot can be contained easily and would not be able harm the rest of the machine.
