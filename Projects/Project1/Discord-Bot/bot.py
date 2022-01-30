@@ -45,14 +45,25 @@ async def on_message(message):
         'A common mistake that people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.',
     ]
 
+    # User says this
+    greetings = ["Hello!", "Hi!", "Hey!"]
+
+    # Bot responds with "Hello!" in 9 languages (ES, FR, JP, KR, RU, ZH-CN, TL, AR, DE)
+    hey_there = ["¡Hola!", "Bonjour !", "こんにちは!", "여보세요!", "Привет!", "你好!", "Kamusta!", "مرحبا!", "Grüß Gott!"]
+
     if message.content == 'towel!':
         #response = random.choice(brooklyn_99_quotes)
         response = random.choice(hitchhiker_quotes)
         await message.channel.send(response)
     
-    elif message.content == 'Hello?':
-        await message.channel.send("Hello there!")
-
-
+    # Greeting command
+    elif message.content in greetings:
+        response = random.choice(hey_there)
+        await message.channel.send(response)
+  
+    # Picture command
+    if message.content == 'What do you have?':
+        image = random.choice("1234567") + ".jpg"
+        await message.channel.send(file=discord.File(image))
 
 client.run(TOKEN)
