@@ -49,7 +49,7 @@ async def on_message(message):
     greetings = ["Hello!", "Hi!", "Hey!"]
 
     # Bot responds with "Hello!" in 9 languages (ES, FR, JP, KR, RU, ZH-CN, TL, AR, DE)
-    hey_there = ["¡Hola!", "Bonjour !", "こんにちは!", "여보세요!", "Привет!", "你好!", "Kamusta!", "مرحبا!", "Grüß Gott!"]
+    hey_there = ["¡Hola!", "Bonjour!", "こんにちは!", "여보세요!", "Привет!", "你好!", "Kamusta!", "مرحبا!", "Grüß Gott!"]
 
     if message.content == 'towel!':
         #response = random.choice(brooklyn_99_quotes)
@@ -63,7 +63,7 @@ async def on_message(message):
   
     # Picture command
     if message.content == 'What do you have?':
-        image = random.choice("1234567") + ".jpg"
+        image = random.choice("123456789") + ".jpg"
         await message.channel.send(file=discord.File(image))
 
 client.run(TOKEN)
