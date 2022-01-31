@@ -55,7 +55,7 @@ async def on_message(message):
         await message.channel.send(response)
         
     # Brooklyn 99 quote command
-    elif message.content == 'noice":
+    elif message.content == 'noice':
         response = random.choice(brooklyn_99_quotes)
         await message.channel.send(response)
         
@@ -65,11 +65,7 @@ async def on_message(message):
         await message.channel.send(response)
   
     # Picture command
-<<<<<<< HEAD
-    if message.content == 'What do you have?':
-=======
     elif message.content == 'What do you have?':
->>>>>>> bc3515056303d398cdbd9d623a78e14fd4553a1a
         image = random.choice("123456789") + ".jpg"
         await message.channel.send(file=discord.File(image))
 
