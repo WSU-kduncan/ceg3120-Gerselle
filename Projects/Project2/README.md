@@ -1,27 +1,38 @@
 
 ## Part 1 - Build a VPC
 
-1. Create a VPC. ![VPC](VPC Creation.png)
+1. Create a VPC. 
+   - Serves as a private, localized network for a single entity, like a business or organization
+   - Many places from all over can connect to this one network and communicate with other devices in the network
 
-2. Create a subnet ![](Screenshots\Subnet Creation.png)
+![](Screenshots\VPC.png)
 
-3. Create an internet gateway ![](Screenshots\Internet Gateway Creation.png)
-   - Tag it with "YOURLASTNAME-gw"
-   - Attach it to your VPC
-4. Create a route table ![](Screenshots\Route Table Creation.png)
-   - Tag it with "YOURLASTNAME-routetable"
-   - Attach it to your VPC
-   - Associate it with your subnet
-   - Add a routing table rule that sends traffic to all destinations to your internet gateway
-5. Create a security group ![](Screenshots\Security Group.png)
-   - Tag it with "YOURLASTNAME-sg"
-   - Allow SSH for a set of trusted networks including:
-     - Your home / where you usually connect to your instances from
-     - Wright State (addresses starting with 130.108)
-     - Instances within the VPC
-   - Attach it to your VPC
-   - Image should include your Inbound rules
-6. (If necessary, else skip) Create a key pair ![](Screenshots\Key Pair.png)
+2. Create a subnet 
+   - A smaller subset of IP address within a network, a group of devices can connect to the same subnet to communicate with each
+     without the need to connect to everyone else on the network/VPC
+
+![](Screenshots\Subnet.png)
+
+3. Create an internet gateway 
+   - The entryway of a private network to the greater internet, remote/outside users would need to enter the network through this gateway
+
+![](Screenshots\InternetGateway.png)
+
+4. Create a route table 
+   - A table of IP address that the network references when trying to move users to their destination, whether in or out of the network
+
+![](Screenshots\RouteTable.png)
+
+5. Create a security group 
+   - A list of rules that the network uses to safely distribute data in and out of the network
+   - Can be configured to allow specific IP addresses to move through specific ports of the network's IP 
+
+![](Screenshots\SecurityGroup.png)
+
+6. (If necessary, else skip) Create a key pair 
+   - A way to authenticate a user to enter a specified network, helpful for ssh things 
+
+![](Screenshots\KeyPair.png)
 
 ## Part 2 - EC2 instances
 
@@ -32,7 +43,7 @@
 2. Attach the instance to your VPC. As discussed there are different pathways to doing this. Say how you did it.
     - I think all I had to do was select my VPC as the network for the machine, I also set the subnet to the VPC's subnet
 3. Determine whether a Public IPv4 address will be auto-assigned to the instance. Justify your choice to do so (or not do so)
-   - Since the subnet is already preconfigured to disable automatic public IPs, I'll just use the first available IP, 10.0.0.4, for the network interface
+   - Since the subnet is already preconfigured to disable automatic public IPs, I'll need to assign one later. 
 4. Attach a volume to your instance. As discussed there are different pathways to doing this. Say how you did it.
     - I just gave the root volume 16GB of gp2 storage, I think that should be good right?
 5. Tag your instance with a "Name" of "YOURLASTNAME-instance". Say how you did it.
@@ -46,25 +57,13 @@
     - Next I pressed on my new EIP and then went to the `Actions` tab, and then clicked on `Associate Elastic IP address`
     - Lastly, I selected `Network interface`, then chose the name of my instance (SELLERS-instance) and it's private ip address (10.0.0.4) and associated the EIP
 8. Create a screenshot your instance details and add it to your project write up.
-   ![](Screenshots/instances.png)
+
+![](Screenshots\InstanceList.png)
+
 9. `ssh` in to your instance. Change the hostname to "YOURLASTNAME-AMI" where AMI is some version of the AMI you chose. Say how you did it.
    1. It is wise to copy config files you are about to change to filename.old For `/etc/hostname`, for example, I would first copy the current `hostname` file to `/etc/hostname.old`
    2. You should not change permissions on any files you are modifying. They are system config files. You may need to access them with administrative privileges.
-   3. Here is a helpful resource: https://www.tecmint.com/set-hostname-permanently-in-linux/ I did not modify `/etc/hosts` on mine - do so or not as you wish.
-10. Create a screenshot your ssh connection to your instance and add it to your project write up - make sure it shows your new hostname.![](Screenshots\HOSTNAME.png)
+   3. Here is a helpful resource: I did not modify `/etc/hosts` on mine - do so or not as you wish.
+10. Create a screenshot your ssh connection to your instance and add it to your project write up - make sure it shows your new hostname.
 
-## Submission
-
-1. Commit and push your changes to your repository. Verify that these changes show in your course repository, https://github.com/WSU-kduncan/ceg3120-YOURGITHUBNAME
-
-   - Your repo should contain:
-   - `images` folder (optional depending on how you implement screenshots)
-   - `README.md`
-
-2. In Pilot, paste the link to your project folder. Sample link: https://github.com/WSU-kduncan/ceg3120-YOURGITHUBUSERNAME/blob/main/Projects/Project2
-
-3. You may delete all created resources once done to save monies. No really, trash it - especially the instance and disassociate and release the elastic ip
-
-## Rubric
-
-[Link to Rubric](Rubric.md)
+![](Screenshots\Hostname.png)
