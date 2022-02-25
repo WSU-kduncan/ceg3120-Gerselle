@@ -142,7 +142,7 @@ Resources:
               htop \
               sl \
               git \
-              python3\
+              python3 \
               pip3 && \
             hostname Sellers-CF && \
             echo "This is from the CF template" > /home/ubuntu/hello.txt && \
